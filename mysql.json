@@ -1,0 +1,192 @@
+{
+	"XMI": {
+		"EPackage": [
+			{
+				"eClassifiers": [
+					{
+						"_xsi:type": "ecore:EDataType",
+						"_name": "Boolean"
+					},
+					{
+						"_xsi:type": "ecore:EDataType",
+						"_name": "Integer"
+					},
+					{
+						"_xsi:type": "ecore:EDataType",
+						"_name": "String"
+					}
+				],
+				"_name": "PrimitiveTypes",
+				"__prefix": "ecore"
+			},
+			{
+				"eClassifiers": [
+					{
+						"eStructuralFeatures": {
+							"_xsi:type": "ecore:EAttribute",
+							"_name": "name",
+							"_ordered": "false",
+							"_unique": "false",
+							"_lowerBound": "1",
+							"_eType": "/0/String"
+						},
+						"_xsi:type": "ecore:EClass",
+						"_name": "NamedElement",
+						"_abstract": "true"
+					},
+					{
+						"eStructuralFeatures": {
+							"_xsi:type": "ecore:EReference",
+							"_name": "tables",
+							"_ordered": "false",
+							"_upperBound": "-1",
+							"_eType": "/1/Table",
+							"_containment": "true",
+							"_eOpposite": "/1/Table/database"
+						},
+						"_xsi:type": "ecore:EClass",
+						"_name": "DataBase",
+						"_eSuperTypes": "/1/NamedElement"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "columns",
+								"_upperBound": "-1",
+								"_eType": "/1/Column",
+								"_containment": "true",
+								"_eOpposite": "/1/Column/table"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "database",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/1/DataBase",
+								"_eOpposite": "/1/DataBase/tables"
+							}
+						],
+						"_xsi:type": "ecore:EClass",
+						"_name": "Table",
+						"_eSuperTypes": "/1/NamedElement"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"_xsi:type": "ecore:EAttribute",
+								"_name": "type",
+								"_ordered": "false",
+								"_unique": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/String"
+							},
+							{
+								"_xsi:type": "ecore:EAttribute",
+								"_name": "isPrimaryKey",
+								"_ordered": "false",
+								"_unique": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Boolean"
+							},
+							{
+								"_xsi:type": "ecore:EAttribute",
+								"_name": "null",
+								"_ordered": "false",
+								"_unique": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Boolean"
+							},
+							{
+								"_xsi:type": "ecore:EAttribute",
+								"_name": "defaultValue",
+								"_ordered": "false",
+								"_unique": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/String"
+							},
+							{
+								"_xsi:type": "ecore:EAttribute",
+								"_name": "comment",
+								"_ordered": "false",
+								"_unique": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/String"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "table",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/1/Table",
+								"_eOpposite": "/1/Table/columns"
+							}
+						],
+						"_xsi:type": "ecore:EClass",
+						"_name": "Column",
+						"_eSuperTypes": "/1/NamedElement"
+					},
+					{
+						"eStructuralFeatures": {
+							"_xsi:type": "ecore:EAttribute",
+							"_name": "isAutoIncrement",
+							"_ordered": "false",
+							"_unique": "false",
+							"_lowerBound": "1",
+							"_eType": "/0/Boolean"
+						},
+						"_xsi:type": "ecore:EClass",
+						"_name": "IntegerColumn",
+						"_eSuperTypes": "/1/Column"
+					},
+					{
+						"eStructuralFeatures": {
+							"_xsi:type": "ecore:EReference",
+							"_name": "enumSet",
+							"_ordered": "false",
+							"_lowerBound": "1",
+							"_eType": "/1/EnumSet",
+							"_containment": "true"
+						},
+						"_xsi:type": "ecore:EClass",
+						"_name": "EnumColumn",
+						"_eSuperTypes": "/1/Column"
+					},
+					{
+						"eStructuralFeatures": {
+							"_xsi:type": "ecore:EReference",
+							"_name": "enumItems",
+							"_ordered": "false",
+							"_upperBound": "-1",
+							"_eType": "/1/EnumItem",
+							"_containment": "true",
+							"_eOpposite": "/1/EnumItem/enumSet"
+						},
+						"_xsi:type": "ecore:EClass",
+						"_name": "EnumSet"
+					},
+					{
+						"eStructuralFeatures": {
+							"_xsi:type": "ecore:EReference",
+							"_name": "enumSet",
+							"_ordered": "false",
+							"_lowerBound": "1",
+							"_eType": "/1/EnumSet",
+							"_eOpposite": "/1/EnumSet/enumItems"
+						},
+						"_xsi:type": "ecore:EClass",
+						"_name": "EnumItem",
+						"_eSuperTypes": "/1/NamedElement"
+					}
+				],
+				"_name": "MySQL",
+				"__prefix": "ecore"
+			}
+		],
+		"_xmlns:xmi": "http://www.omg.org/XMI",
+		"_xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+		"_xmlns:ecore": "http://www.eclipse.org/emf/2002/Ecore",
+		"_xmi:version": "2.0",
+		"__prefix": "xmi"
+	}
+}

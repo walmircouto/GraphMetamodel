@@ -1,0 +1,232 @@
+{
+	"XMI": {
+		"EPackage": [
+			{
+				"eClassifiers": [
+					{
+						"eStructuralFeatures": [
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "parent",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Generalization"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "child",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Generalization"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "dependency",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Dependency",
+								"_eOpposite": "/0/Dependency/client"
+							}
+						],
+						"_xsi:type": "ecore:EClass",
+						"_name": "Class"
+					},
+					{
+						"_xsi:type": "ecore:EClass",
+						"_name": "Generalization"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "supplier",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/StateMachine"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "client",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Class",
+								"_eOpposite": "/0/Class/dependency"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "stereotype",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Stereotype",
+								"_eOpposite": "/0/Stereotype/extendedElement"
+							}
+						],
+						"_xsi:type": "ecore:EClass",
+						"_name": "Dependency"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"_xsi:type": "ecore:EAttribute",
+								"_name": "baseClass",
+								"_ordered": "false",
+								"_unique": "false",
+								"_lowerBound": "1",
+								"_eType": "/1/String"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "extendedElement",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Dependency",
+								"_eOpposite": "/0/Dependency/stereotype"
+							}
+						],
+						"_xsi:type": "ecore:EClass",
+						"_name": "Stereotype"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "context",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Class"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "top",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/State",
+								"_containment": "true",
+								"_eOpposite": "/0/State/stateMachine"
+							}
+						],
+						"_xsi:type": "ecore:EClass",
+						"_name": "StateMachine"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "stateMachine",
+								"_ordered": "false",
+								"_eType": "/0/StateMachine",
+								"_eOpposite": "/0/StateMachine/top"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "internal",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/Transition",
+								"_containment": "true"
+							}
+						],
+						"_xsi:type": "ecore:EClass",
+						"_name": "State",
+						"_eSuperTypes": "/0/StateVertex"
+					},
+					{
+						"eStructuralFeatures": {
+							"_xsi:type": "ecore:EReference",
+							"_name": "subvertex",
+							"_ordered": "false",
+							"_lowerBound": "1",
+							"_eType": "/0/StateVertex",
+							"_containment": "true",
+							"_eOpposite": "/0/StateVertex/compositeState"
+						},
+						"_xsi:type": "ecore:EClass",
+						"_name": "CompositeState",
+						"_eSuperTypes": "/0/State"
+					},
+					{
+						"_xsi:type": "ecore:EClass",
+						"_name": "SimpleState",
+						"_eSuperTypes": "/0/State"
+					},
+					{
+						"_xsi:type": "ecore:EClass",
+						"_name": "FinalState",
+						"_eSuperTypes": "/0/State"
+					},
+					{
+						"eStructuralFeatures": {
+							"_xsi:type": "ecore:EReference",
+							"_name": "compositeState",
+							"_ordered": "false",
+							"_eType": "/0/CompositeState",
+							"_eOpposite": "/0/CompositeState/subvertex"
+						},
+						"_xsi:type": "ecore:EClass",
+						"_name": "StateVertex"
+					},
+					{
+						"_xsi:type": "ecore:EClass",
+						"_name": "PseudoState",
+						"_eSuperTypes": "/0/StateVertex"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "trigger",
+								"_ordered": "false",
+								"_eType": "/0/Event"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "source",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/StateVertex"
+							},
+							{
+								"_xsi:type": "ecore:EReference",
+								"_name": "target",
+								"_ordered": "false",
+								"_lowerBound": "1",
+								"_eType": "/0/StateVertex"
+							}
+						],
+						"_xsi:type": "ecore:EClass",
+						"_name": "Transition"
+					},
+					{
+						"_xsi:type": "ecore:EClass",
+						"_name": "Event"
+					}
+				],
+				"_name": "UMLMetamodelFragment",
+				"__prefix": "ecore"
+			},
+			{
+				"eClassifiers": [
+					{
+						"_xsi:type": "ecore:EDataType",
+						"_name": "Boolean"
+					},
+					{
+						"_xsi:type": "ecore:EDataType",
+						"_name": "Integer"
+					},
+					{
+						"_xsi:type": "ecore:EDataType",
+						"_name": "String"
+					}
+				],
+				"_name": "PrimitiveTypes",
+				"__prefix": "ecore"
+			}
+		],
+		"_xmlns:xmi": "http://www.omg.org/XMI",
+		"_xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+		"_xmlns:ecore": "http://www.eclipse.org/emf/2002/Ecore",
+		"_xmi:version": "2.0",
+		"__prefix": "xmi"
+	}
+}

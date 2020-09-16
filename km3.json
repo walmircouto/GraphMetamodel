@@ -1,0 +1,245 @@
+{
+	"XMI": {
+		"EPackage": [
+			{
+				"eClassifiers": [
+					{
+						"xsi:type": "ecore:EDataType",
+						"name": "Boolean"
+					},
+					{
+						"xsi:type": "ecore:EDataType",
+						"name": "Integer"
+					},
+					{
+						"xsi:type": "ecore:EDataType",
+						"name": "String"
+					}
+				],
+				"name": "PrimitiveTypes",
+				"prefix": "ecore"
+			},
+			{
+				"eClassifiers": [
+					{
+						"eStructuralFeatures": {
+							"xsi:type": "ecore:EAttribute",
+							"name": "location",
+							"ordered": "false",
+							"unique": "false",
+							"lowerBound": "1",
+							"eType": "/0/String"
+						},
+						"xsi:type": "ecore:EClass",
+						"name": "LocatedElement",
+						"abstract": "true"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"xsi:type": "ecore:EAttribute",
+								"name": "name",
+								"ordered": "false",
+								"unique": "false",
+								"lowerBound": "1",
+								"eType": "/0/String"
+							},
+							{
+								"xsi:type": "ecore:EReference",
+								"name": "package",
+								"ordered": "false",
+								"lowerBound": "1",
+								"eType": "/1/Package",
+								"eOpposite": "/1/Package/contents"
+							}
+						],
+						"xsi:type": "ecore:EClass",
+						"name": "ModelElement",
+						"abstract": "true",
+						"eSuperTypes": "/1/LocatedElement"
+					},
+					{
+						"xsi:type": "ecore:EClass",
+						"name": "Classifier",
+						"eSuperTypes": "/1/ModelElement"
+					},
+					{
+						"xsi:type": "ecore:EClass",
+						"name": "DataType",
+						"eSuperTypes": "/1/Classifier"
+					},
+					{
+						"eStructuralFeatures": {
+							"xsi:type": "ecore:EReference",
+							"name": "literals",
+							"upperBound": "-1",
+							"eType": "/1/EnumLiteral",
+							"containment": "true"
+						},
+						"xsi:type": "ecore:EClass",
+						"name": "Enumeration",
+						"eSuperTypes": "/1/Classifier"
+					},
+					{
+						"xsi:type": "ecore:EClass",
+						"name": "EnumLiteral",
+						"eSuperTypes": "/1/ModelElement"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"xsi:type": "ecore:EAttribute",
+								"name": "isAbstract",
+								"ordered": "false",
+								"unique": "false",
+								"lowerBound": "1",
+								"eType": "/0/Boolean"
+							},
+							{
+								"xsi:type": "ecore:EReference",
+								"name": "supertypes",
+								"ordered": "false",
+								"upperBound": "-1",
+								"eType": "/1/Class"
+							},
+							{
+								"xsi:type": "ecore:EReference",
+								"name": "structuralFeatures",
+								"upperBound": "-1",
+								"eType": "/1/StructuralFeature",
+								"containment": "true",
+								"eOpposite": "/1/StructuralFeature/owner"
+							}
+						],
+						"xsi:type": "ecore:EClass",
+						"name": "Class",
+						"eSuperTypes": "/1/Classifier"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"xsi:type": "ecore:EAttribute",
+								"name": "lower",
+								"ordered": "false",
+								"unique": "false",
+								"lowerBound": "1",
+								"eType": "/0/Integer"
+							},
+							{
+								"xsi:type": "ecore:EAttribute",
+								"name": "upper",
+								"ordered": "false",
+								"unique": "false",
+								"lowerBound": "1",
+								"eType": "/0/Integer"
+							},
+							{
+								"xsi:type": "ecore:EAttribute",
+								"name": "isOrdered",
+								"ordered": "false",
+								"unique": "false",
+								"lowerBound": "1",
+								"eType": "/0/Boolean"
+							},
+							{
+								"xsi:type": "ecore:EAttribute",
+								"name": "isUnique",
+								"ordered": "false",
+								"unique": "false",
+								"lowerBound": "1",
+								"eType": "/0/Boolean"
+							},
+							{
+								"xsi:type": "ecore:EReference",
+								"name": "owner",
+								"ordered": "false",
+								"lowerBound": "1",
+								"eType": "/1/Class",
+								"eOpposite": "/1/Class/structuralFeatures"
+							},
+							{
+								"xsi:type": "ecore:EReference",
+								"name": "type",
+								"ordered": "false",
+								"lowerBound": "1",
+								"eType": "/1/Classifier"
+							}
+						],
+						"xsi:type": "ecore:EClass",
+						"name": "StructuralFeature",
+						"eSuperTypes": "/1/ModelElement"
+					},
+					{
+						"xsi:type": "ecore:EClass",
+						"name": "Attribute",
+						"eSuperTypes": "/1/StructuralFeature"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"xsi:type": "ecore:EAttribute",
+								"name": "isContainer",
+								"ordered": "false",
+								"unique": "false",
+								"lowerBound": "1",
+								"eType": "/0/Boolean"
+							},
+							{
+								"xsi:type": "ecore:EReference",
+								"name": "opposite",
+								"ordered": "false",
+								"eType": "/1/Reference"
+							}
+						],
+						"xsi:type": "ecore:EClass",
+						"name": "Reference",
+						"eSuperTypes": "/1/StructuralFeature"
+					},
+					{
+						"eStructuralFeatures": [
+							{
+								"xsi:type": "ecore:EReference",
+								"name": "contents",
+								"upperBound": "-1",
+								"eType": "/1/ModelElement",
+								"containment": "true",
+								"eOpposite": "/1/ModelElement/package"
+							},
+							{
+								"xsi:type": "ecore:EReference",
+								"name": "metamodel",
+								"ordered": "false",
+								"lowerBound": "1",
+								"eType": "/1/Metamodel",
+								"eOpposite": "/1/Metamodel/contents"
+							}
+						],
+						"xsi:type": "ecore:EClass",
+						"name": "Package",
+						"eSuperTypes": "/1/ModelElement"
+					},
+					{
+						"eStructuralFeatures": {
+							"xsi:type": "ecore:EReference",
+							"name": "contents",
+							"upperBound": "-1",
+							"eType": "/1/Package",
+							"containment": "true",
+							"eOpposite": "/1/Package/metamodel"
+						},
+						"xsi:type": "ecore:EClass",
+						"name": "Metamodel",
+						"eSuperTypes": "/1/LocatedElement"
+					}
+				],
+				"name": "KM3",
+				"prefix": "ecore"
+			}
+		],
+		"xmlns:xmi": "http://www.omg.org/XMI",
+		"xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+		"xmlns:ecore": "http://www.eclipse.org/emf/2002/Ecore",
+		"xmi:version": "2.0",
+		"prefix": "xmi"
+	}
+}
